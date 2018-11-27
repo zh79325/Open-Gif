@@ -1,3 +1,5 @@
 /target
 /.settings
 /src/test/resources/input-images/Thumbs.db
+*.iml
+.idea/

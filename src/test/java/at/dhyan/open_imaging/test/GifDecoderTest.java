@@ -88,50 +88,6 @@ public class GifDecoderTest {
 		}
 	}
 
-	@Test
-	public void testPerformanceKevinWeinerDecoder() {
-		try {
-			// Warm up
-			for (int n = 0; n < WARMUP_LOOPS; n++) {
-				for (final TestImage testImg : IMAGES) {
-					testImg.stream.reset();
-					final com.fmsware.GifDecoder decoder = new com.fmsware.GifDecoder();
-					decoder.read(testImg.stream);
-					final int frameCount = decoder.getFrameCount();
-					for (int i = 0; i < frameCount; i++) {
-						decoder.getFrame(i);
-					}
-				}
-			}
-
-			// Actual performance test
-			final long start = System.nanoTime();
-			for (int n = 0; n < LOOPS; n++) {
-				for (final TestImage testImg : IMAGES) {
-					testImg.stream.reset();
-					final com.fmsware.GifDecoder decoder = new com.fmsware.GifDecoder();
-					decoder.read(testImg.stream);
-					final int frameCount = decoder.getFrameCount();
-					for (int i = 0; i < frameCount; i++) {
-						decoder.getFrame(i);
-					}
-				}
-			}
-			final long runtime = (System.nanoTime() - start) / 1000000;
-
-			// Output results
-			final long avg = Math.round(runtime / LOOPS);
-			System.out.println("RESULTS FOR KEVIN WEINER DECODER");
-			System.out.println("Files: " + IMAGES.length);
-			System.out.println("Repetitions: " + LOOPS);
-			System.out.println("Runtime: " + runtime + " ms");
-			System.out.println("Time per repetition: " + avg + " ms");
-			assertEquals(true, true);
-		} catch (final Exception e) {
-			assertEquals(true, false);
-		}
-
-	}
 
 	@Test
 	public void testPerformanceOpenImagingDecoder() throws Exception {
@@ -174,12 +130,7 @@ public class GifDecoderTest {
 		}
 	}
 
-	@Test
-	public void testWriteFramesAllImagesKevinWeinerDecoder() throws Exception {
-		for (final TestImage testImg : IMAGES) {
-			writeGifImageKevinWeinerDecoder(testImg);
-		}
-	}
+
 
 	@Test
 	public void testWriteFramesAllImagesOpenImagingDecoder() throws Exception {
@@ -188,12 +139,7 @@ public class GifDecoderTest {
 		}
 	}
 
-	@Test
-	public void testWriteFramesSubsetImageKevinWeinerDecoder() throws Exception {
-		for (final TestImage testImg : IMAGES_SUBSET) {
-			writeGifImageKevinWeinerDecoder(testImg);
-		}
-	}
+
 
 	@Test
 	public void testWriteFramesSubsetImageOpenImagingDecoder() throws Exception {
@@ -202,21 +148,6 @@ public class GifDecoderTest {
 		}
 	}
 
-	private void writeGifImageKevinWeinerDecoder(final TestImage testImg) {
-		try {
-			testImg.stream.reset();
-			final com.fmsware.GifDecoder decoder = new com.fmsware.GifDecoder();
-			decoder.read(testImg.stream);
-			final int frameCount = decoder.getFrameCount();
-			for (int i = 0; i < frameCount; i++) {
-				final BufferedImage img = decoder.getFrame(i);
-				ImageIO.write(img, "png", new File(OUT_FOLDER + testImg.name + "_" + i + ".png"));
-			}
-		} catch (final Exception e) {
-			e.printStackTrace();
-			assertEquals(true, false);
-		}
-	}
 
 	private void writeGifImageOpenImagingDecoder(final TestImage testImg) {
 		try {

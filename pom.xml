@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.zh79325</groupId>
     <artifactId>open-gif</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <name>Open Gif</name>
 
     <properties>
@@ -20,8 +20,22 @@
         </license>
     </licenses>
     <scm>
-        <url>https://svn.apache.org/viewvc/maven</url>
+        <url>https://github.com/zh79325/Open-Imaging.git</url>
     </scm>
+
+    <developers>
+        <developer>
+            <id>potato</id>
+            <name>Potato</name>
+            <email>zh79325@163.com</email>
+            <organization>github</organization>
+            <organizationUrl>https://github.com/zh79325</organizationUrl>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
     <dependencies>
 
         <!-- Use SLF4J with LOGBACK-CLASSIC as underlying logging framework. See

@@ -38,20 +38,7 @@ import java.util.List;
  * Example usage:
  * </p>
  *
- * <p>
  *
- * <pre>
- * final GifImage gifImage = GifDecoder.read(int[] data);
- * final int width = gifImage.getWidth();
- * final int height = gifImage.getHeight();
- * final int frameCount = gifImage.getFrameCount();
- * for (int i = 0; i < frameCount; i++) {
- * 	final BufferedImage image = gifImage.getFrame(i);
- * 	final int delay = gif.getDelay(i);
- * }
- * </pre>
- *
- * </p>
  *
  * @author Dhyan Blum
  * @version 1.09 November 2017
@@ -318,8 +305,8 @@ public final class GifDecoder {
 		 *            Index of the current frame, 0 to N-1
 		 * @return 32 bit ARGB color in the form 0xAARRGGBB
 		 */
-		public final int getBackgroundColor() {
-			final GifFrame frame = frames.get(0);
+		public final int getBackgroundColor(int index) {
+			final GifFrame frame = frames.get(index);
 			if (frame.hasLocColTbl) {
 				return frame.localColTbl[bgColIndex];
 			} else if (hasGlobColTbl) {

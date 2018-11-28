@@ -1,7 +1,23 @@
-Open Imaging
+Open Gif
 ============
 
-Welcome to Open Imaging. Currently this project only contains a GIF decoder. At a later point, other tools and libraries that deal with the creation and processing of images may be added.
+This Repo is forked from https://github.com/DhyanB/Open-Imaging
+
+## Updated 2018-11-28
+> Pushed to Maven Central
+```
+<dependency>
+  <groupId>com.github.zh79325</groupId>
+  <artifactId>open-gif</artifactId>
+  <version>1.0.4</version>
+</dependency>
+```
+
+
+Welcome to Open Gif. Currently this project only contains a GIF decoder. At a later point, other tools and libraries that deal with the creation and processing of images may be added.
+
+
+
 
 ## GIF Decoder
 
